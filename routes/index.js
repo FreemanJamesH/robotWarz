@@ -35,7 +35,7 @@ router.get('/profile/:user', (req, res, next) => {
 const fightIDArr = [];
 router.get('/admin', function(req, res, next) {
   knex('fights').then(function(knexReturn){
-    console.log(knexReturn);
+    // console.log(knexReturn);
     res.render('admin', {database: knexReturn})
   });
 })
@@ -48,10 +48,14 @@ router.post('/admin', function(req, res, next){
     res.redirect('/admin');
   })
 })
-router.post('/fight', function(req, res, next) {
-  console.log();
+router.get('/fights/:fightID', function(req, res, next) {
   var winner = Math.ceil(Math.random()*2);
-  knex('fights').where('id', )insert('fightWinner', winner);
+  knex('fights')
+  .where({fightID: req.params.fightID})
+  .update({fightWinner: winner})
+  .then(data => {
+    res.redirect('/admin');
+  });
 })
 
 //nested knex selector example

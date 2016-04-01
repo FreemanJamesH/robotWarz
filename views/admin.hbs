@@ -26,15 +26,13 @@
  <h1>HI</h1>
  {{#database}}
  <tr>
-   <form action="/fight" method="post">
-
    <td>{{fightID}}</td>
    <td>{{fighterOne}}</td>
    <td>{{fighterTwo}}</td>
-   <td>
-     <input type="submit" value="Start Fight">
-   </td>
- </form>
+  <td>
+    <a href="/fights/{{fightID}}">Start</a>
+  </td>
+
  </tr>
  {{/database}}
 </table>
