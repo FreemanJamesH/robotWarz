@@ -8,11 +8,12 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/profile/:user', (req, res, next) =>{
-  
-  res.render('profile', {
-    title: 'Robo Warzz',
-    user: req.params.user
-  })
+  var return1;
+  var return2;
+  knex('fights').then(function(knexReturn){
+    console.log(knexReturn);
+  });
+  res.render('profile', {title: 'Robo Warzasdadddz', user: req.params.user, database:knexReturn})
 });
 
 //nested knex selector example
