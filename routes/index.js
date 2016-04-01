@@ -17,20 +17,26 @@ router.get('/profile/:user', (req, res, next) => {
   });
   res.render('profile', {title: 'Robo Warzasdadddz', user: req.params.user, database:knexReturn})
 });
-
+const fightIDArr = [];
 router.get('/admin', function(req, res, next) {
   knex('fights').then(function(knexReturn){
+    console.log(knexReturn);
     res.render('admin', {database: knexReturn})
   });
 })
 router.post('/admin', function(req, res, next){
-  console.log(req.body);
+
   knex('fights').insert({
       fighterOne: req.body.fighterOne,
       fighterTwo: req.body.fighterTwo
   }).then(function(){
     res.redirect('/admin');
   })
+})
+router.post('/fight', function(req, res, next) {
+  console.log();
+  var winner = Math.ceil(Math.random()*2);
+  knex('fights').where('id', )insert('fightWinner', winner);
 })
 
 //nested knex selector example

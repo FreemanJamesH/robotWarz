@@ -26,13 +26,15 @@
  <h1>HI</h1>
  {{#database}}
  <tr>
+   <form action="/fight" method="post">
+
    <td>{{fightID}}</td>
    <td>{{fighterOne}}</td>
    <td>{{fighterTwo}}</td>
    <td>
-     <input id="start" type="button" value="Start Fight">
+     <input type="submit" value="Start Fight">
    </td>
+ </form>
  </tr>
-
  {{/database}}
 </table>
