@@ -7,8 +7,17 @@ router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
-router.post('/', (req, res) =>{
-  // req.params.
-})
+router.post('/', (req, res, next) =>{
+  knex('users')
+    .insert({
+      name: req.body.name,
+      password: req.body.password,
+      funds: 1000
+    })
+    .then(response => {})
+    .catch(err =>{ next( new Error(err)) });
+
+    res.redirect(`/profile/${req.body.name}`)
+});
 
 module.exports = router;

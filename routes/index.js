@@ -7,6 +7,13 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+router.get('/profile/:user', (req, res, next) =>{
+
+  res.render('profile', {
+    title: 'Robo Warzz',
+    user: req.params.user
+  })
+});
 
 //nested knex selector example
 // router.post('/test/:fightID', function(req,res,next){

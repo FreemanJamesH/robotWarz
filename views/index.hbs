@@ -1,14 +1,18 @@
 <h1>Welcome to RobotWarz</h1>
 
-<h2>Click <a href="/signup">here</a> to signup.<h2>
+<form action="/signup" method="post">
+  <label>Signup Here<label>
+    <input type="text" name="name" placeholder="Your Name">
+    <label>Password</label>
+    <input type="password" name="password" placeholder="password">
+    <input type="submit" value="Sign Up!">
+  </form>
 
-<form action="/index" method="post">
 
-
-<label>Signup Here<label>
-<input type="text" name="name" placeholder="Your Name">
-<label>Password</label>
-<input type="password" name="password" placeholder="password">
-<input type="submit" value="Sign Up!">
-
-</form>
+  <form class="" action="/login" method="post">
+    <h4>Already a member? Login below!</h4>
+    <input type="text" name="name" placeholder="Your Name">
+    <label>Password</label>
+    <input type="password" name="password" placeholder="password">
+    <input type="submit" value="Login">
+  </form>
