@@ -7,12 +7,14 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.get('/profile/:user', function(req, res, next) {
 
-  res.render('profile', {
-    title: 'Robo Warzz',
-    user: req.params.user
-  })
+router.get('/profile/:user', (req, res, next) =>{
+  var return1;
+  var return2;
+  knex('fights').then(function(knexReturn){
+    console.log(knexReturn);
+  });
+  res.render('profile', {title: 'Robo Warzasdadddz', user: req.params.user, database:knexReturn})
 });
 
 router.get('/admin', function(req, res, next) {
@@ -21,7 +23,12 @@ router.get('/admin', function(req, res, next) {
   });
 })
 router.post('/admin', function(req, res, next){
-  knex('fights').insert(req.body);
+  console.log(req.body);
+  knex('fights').insert({
+      fighterOne: "reqbodyfighterOne",
+      fighterTwo: "reqbodyfighterTwo"
+  });
+  res.redirect('/admin');
 })
 
 //nested knex selector example

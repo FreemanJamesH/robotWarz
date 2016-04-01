@@ -1,6 +1,8 @@
 <h3>Hey {{user}}! </h3>
 <p>Welcome to {{title}}</p>
 
+<p>Your current balance: {{funds}}<p>
+
 
 <h4>Upcoming fights<h4>
 
@@ -10,9 +12,12 @@
     <th>Fighter One</th>
     <th>Fighter Two</th>
   </tr>
+  <h1>HI</h1>
+  {{#database}}
   <tr>
-    <td>{{fightId}}a</td>
-    <td>{{one}}b</td>
-    <td>{{two}}c</td>
+    <td>{{fightID}}</td>
+    <td>{{fighterOne}}</td>
+    <td>{{fighterTwo}}</td>
   </tr>
+  {{/database}}
 </table>
