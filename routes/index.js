@@ -10,9 +10,6 @@ router.get('/', function(req, res, next) {
   });
 });
 
-
-
-
 router.get('/profile/:user', (req, res, next) => {
   var return1;
   var return2;
@@ -36,7 +33,6 @@ router.get('/profile/:user', (req, res, next) => {
 const fightIDArr = [];
 router.get('/admin', function(req, res, next) {
   knex('fights').then(function(knexReturn){
-    // console.log(knexReturn);
     res.render('admin', {database: knexReturn})
   });
 })
@@ -55,7 +51,7 @@ router.get('/fights/:fightID', function(req, res, next) {
   .where({fightID: req.params.fightID})
   .update({fightWinner: winner})
   .then(data => {
-    res.redirect('/admin');
+    res.redirect('../public/index.html');
   });
 })
 
