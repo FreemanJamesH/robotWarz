@@ -12,7 +12,6 @@ router.get('/', function(req, res, next) {
 
 
 
-
 router.get('/profile/:user', (req, res, next) => {
   var return1;
   var return2;
@@ -68,5 +67,9 @@ router.post('/fight', function(req, res, next) {
 //     })
 //   })
 // })
+
+router.get('/wagers/:fightID/:user', function(req, res, next){
+  res.render('wagers')
+})
 
 module.exports = router;
