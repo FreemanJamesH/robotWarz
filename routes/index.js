@@ -1,3 +1,4 @@
+'use strict';
 var express = require('express');
 var router = express.Router();
 var knex = require('knex')(require('../knexfile')['development']);
@@ -8,7 +9,7 @@ router.get('/', function(req, res, next) {
 });
 
 
-router.get('/profile/:user', (req, res, next) =>{
+router.get('/profile/:user', (req, res, next) => {
   var return1;
   var return2;
   knex('fights').then(function(knexReturn){
@@ -25,10 +26,11 @@ router.get('/admin', function(req, res, next) {
 router.post('/admin', function(req, res, next){
   console.log(req.body);
   knex('fights').insert({
-      fighterOne: "reqbodyfighterOne",
-      fighterTwo: "reqbodyfighterTwo"
-  });
-  res.redirect('/admin');
+      fighterOne: req.body.fighterOne,
+      fighterTwo: req.body.fighterTwo
+  }).then(function(){
+    res.redirect('/admin');
+  })
 })
 
 //nested knex selector example

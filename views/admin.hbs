@@ -21,6 +21,7 @@
    <th>Fight Id</th>
    <th>Fighter One</th>
    <th>Fighter Two</th>
+   <th>Fight!</th>
  </tr>
  <h1>HI</h1>
  {{#database}}
@@ -28,7 +29,10 @@
    <td>{{fightID}}</td>
    <td>{{fighterOne}}</td>
    <td>{{fighterTwo}}</td>
+   <td>
+     <input id="start" type="button" value="Start Fight">
+   </td>
  </tr>
- <input id="start" type="button" value="Start Fight">
+
  {{/database}}
 </table>
