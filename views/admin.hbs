@@ -1,0 +1,34 @@
+<h3>Welcome Admin {{user}}!</h3>
+<p>Here you can add or start a fight and view the bots</p>
+
+<form action="/admin" method="post">
+
+<fieldset>
+<label>Fighter 1 Name</label>
+<input type="text" name="fighterOne">
+<br>
+<br>
+<label>Fighter 2 Name</label>
+<input type="text" name="fighterTwo">
+<br><br>
+<input type="submit" value="Add Fight">
+</fieldset>
+</form>
+
+
+<table>
+ <tr>
+   <th>Fight Id</th>
+   <th>Fighter One</th>
+   <th>Fighter Two</th>
+ </tr>
+ <h1>HI</h1>
+ {{#database}}
+ <tr>
+   <td>{{fightID}}</td>
+   <td>{{fighterOne}}</td>
+   <td>{{fighterTwo}}</td>
+ </tr>
+ <input id="start" type="button" value="Start Fight">
+ {{/database}}
+</table>
