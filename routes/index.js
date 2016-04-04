@@ -73,7 +73,27 @@ router.get('/fights/:fightID', function(req, res, next) {
 // })
 
 router.get('/wagers/:fightID/:user', function(req, res, next){
-  res.render('wagers')
+  res.render('wagers', {
+    id: req.params.fightID,
+    user: req.params.user
+  })
+})
+
+router.post('/wagers/:fightID/:user', function(req, res, next){
+  console.log(req.params.fightID);
+  knex('fights')
+  .where({fightID: req.params.fightID})
+  .then(data =>{
+    if(data[0].fightWinner == req.body.fighter){
+      res.send('You Win!');
+    }
+    else {
+      res.send('you looooose');
+    }
+
+
+  })
+  // res.render('wagers')
 })
 
 module.exports = router;

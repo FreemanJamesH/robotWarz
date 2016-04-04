@@ -1,5 +1,12 @@
-<label for="">Which fighter?</label>
-<input type="number" name="name" value="">
-<label for="">Amount to wager</label>
-<input type="number" name="name" value="">
-<input type="button" name="name" value="Submit!">
+
+<p>
+  hi {{user}}
+</p>
+
+<form action="/wagers/{{id}}/{{user}}" method="post">
+  <label for="">Which fighter?</label>
+  <input type="number" name="fighter" value="">
+  <label for="">Amount to wager</label>
+  <input type="number" name="wager" value="">
+  <input type="submit" value="Submit!">
+</form>
